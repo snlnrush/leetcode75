@@ -17,6 +17,27 @@ class Solution:
         return merged_word
 
 
+class Solution:
+    def mergeAlternately(self, word1: str, word2: str) -> str:
+        head = 0
+        head_endpoint = len(word1)
+        tail = 0
+        tail_endpoint = len(word2)
+        merged_word = ''
+        common_point = head_endpoint + tail_endpoint
+
+        while common_point:
+            if head < head_endpoint:
+                merged_word += word1[head]
+                head += 1
+            if tail < tail_endpoint:
+                merged_word += word2[tail]
+                tail += 1
+            common_point -= 1
+
+        return merged_word
+
+
 """
 1768. Merge Strings Alternately
 
