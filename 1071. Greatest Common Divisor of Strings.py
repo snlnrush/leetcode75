@@ -1,5 +1,22 @@
 class Solution:
     def gcdOfStrings(self, str1: str, str2: str) -> str:
+        pre, m_string = (str1, str2) if len(str1) <= len(str2) else (str2, str1)
+        base = len(pre)
+        main = len(m_string)
+        div, path = divmod(main, base)
+
+        while True:
+            if base == 0:
+                return ''
+            if div == 0:
+                return ''
+            if path == 0:
+                if m_string == pre * div:
+                    return pre
+                base -= 1
+                pre = pre[: base]
+            else:
+                base -= 1
 
 
 """
